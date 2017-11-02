@@ -21,14 +21,13 @@ function eventline() {
         // the 0th element being the start date of the domain, and the 1st element
         // being the end date.
         domain = [
-            new Date(2012, 0, 1, 0, 0, 0, 0),
-            new Date(2012, 11, 31, 23, 59, 59, 999)
+            0,
+            1
         ],
         // An object containing the arguments to be passed to the D3 axis generation.
         // See https://github.com/mbostock/d3/wiki/SVG-Axes for possible parameters.
         axisArgs = {
-            "labelFormat": "%b",
-            "tickSize": d3.time.month,
+            "tickSize": 1,
             "tickInterval": 1
         },
         // The amount of horizontal space to provide for the y-axis labels before
@@ -41,7 +40,7 @@ function eventline() {
             var height = (margin.top + data.length * (eventHeight + bandMargin) -
                     bandMargin + margin.bottom + axisH);
             var bandWidth = (width - margin.left - labelMargin - margin.right);
-            var xScale = d3.time.scale()
+            var xScale = d3.scale.linear()
                 .domain(domain)
                 .range([0, bandWidth]);
 
@@ -65,19 +64,11 @@ function eventline() {
 
             var axisGen = d3.svg.axis().scale(xScale)
                 .orient("bottom")
-                .tickFormat(d3.time.format(axisArgs.labelFormat))
-                .ticks(axisArgs.tickSize, axisArgs.tickInterval)
                 .innerTickSize(height - 40)
                 .outerTickSize(height - 40);
             var axis = stack.append("g")
                 .attr("class", "axis")
                 .call(axisGen);
-            // Position axis labels between tick marks
-            axis.selectAll(".axis text")
-                .attr("x", function(d) {
-                    return (width / (xScale.ticks(
-                        axisArgs.tickSize, axisArgs.tickInterval).length * 2));
-                });
 
             var bandEnter = bands.enter().append("g")
                 .attr("transform", function(d, i) {
