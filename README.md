@@ -1,5 +1,7 @@
 # Eventline
 
+**Modified to allow linear x-axis.**
+
 Eventline is a Javascript plugin which leverages [D3](http://d3js.org/) to provide a Gantt chart-like data visualization for plotting multiple series of temporal "events." The events are plotted on stacked timelines to afford easy comparison and potential exploration of their occurences in order to illustrate or discover correlations between datasets.
 
 A series of years, the default configuration:
