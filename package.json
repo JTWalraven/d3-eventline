@@ -1,0 +1,27 @@
+{
+  "name": "d3-eventline",
+  "version": "1.0.0",
+  "description": "Provides a Gantt chart-like data visualization",
+  "main": "d3.eventline.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JTWalraven/d3-eventline.git"
+  },
+  "keywords": [
+    "d3",
+    "eventline",
+    "gantt"
+  ],
+  "author": "Josh Komusin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JTWalraven/d3-eventline/issues"
+  },
+  "homepage": "https://github.com/JTWalraven/d3-eventline#readme"
+}
